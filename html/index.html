@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- Library -->
+		<link
+			rel="stylesheet"
+			href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+			integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+			crossorigin="anonymous"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+			crossorigin="anonymous"
+		/>
+		<!-- Custom CSS -->
+		<link href="styles.css" rel="stylesheet" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<nav id="sidebar">
+				<div class="sidebar-header border-bottom">
+					<div class="profile-pic mb-4 text-center"></div>
+					<h3>Halo, Altaf</h2>
+				</div>
+            <ul class="list-unstyled components">
+               <li class="my-3">
+                  <a href="index.html" class="d-flex align-items-center">
+                     <i class="far fa-chart-bar" id="sidebar-link"></i>
+                     <span class="px-4" id="sidebar-link">Dashboard</span>
+                  </a>
+               </li>
+               <li class="my-3">
+                  <a href="data.html" class="d-flex align-items-center">
+                     <i class="far fa-id-badge" id="sidebar-link"></i>
+                     <span class="px-4" id="sidebar-link">Data Pasien</span>
+                  </a>
+               </li>
+               <li class="my-3">
+                  <a href="diagnosis.html" class="d-flex align-items-center">
+                     <i class="far fa-edit" id="sidebar-link"></i>
+                     <span class="px-4" id="sidebar-link">Diagnosis</span>
+                  </a>
+               </li>
+            </ul>
+			</nav>
+
+         <div id="content">
+            <div class="container py-5">
+               <div class="row">
+                  <div class="col-xl-3 col-md-6 col-sm4">
+                     <div class="card mb-5 py-2 shadow">
+                        <div class="card-body">
+                           <div class="row no-gutters align-items-center">
+                              <div class="col mr-2">
+                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                       Jumlah Pasien</div>
+                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <!-- Menampilkan Jumlah Data Pasien -->
+                                    <?php
+                                          $sql = "SELECT COUNT(1) FROM tb_pasien";
+                                          $query = mysqli_query($conn, $sql);
+                                          $row = mysqli_fetch_array($query);
+                                          $total = $row[0];
+                                          echo $total;
+                                    ?>
+                                 </div>
+                              </div>
+                              <div class="col-auto">
+                                 <i class="far fa-user fa-2x text-gray-300"></i>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col">
+                     <table class="table table-bordered">
+                        <tr class="table-primary">
+                           <th>Nama</th>
+                           <th>Hasil</th>
+                           <th>Aksi</th>
+                        </tr>
+                        <tr>
+                           <td>Yanto</td>
+                           <td>Atopik</td>
+                           <td><a href='' class='btn btn-primary px-3 py-2'><i class='far fa-edit '></i></a>
+                              <a href='config.php?delete&id=$data[0]' class='btn btn-danger px-3 py-2'><i class='far fa-trash-alt '></i></a></td>
+                        </tr>
+                     </table>
+                  </div>
+               </div>
+            </div>
+        </div>
+		</div>
+      
+	</body>
+</html>
