@@ -14,80 +14,80 @@
             <div class="row mt-4">
                <div class="col-md-6 col-sm-12">
                   <label for="">Gejala 1</label><br>
-                  <select name="gejala1" id="" class="form-control">
-                     <option value="ya">Ya</option>
-                     <option value="no" selected>Tidak</option>
+                  <select name="G01" id="" class="form-control">
+                     <option value="G01">Ya</option>
+                     <option value="" selected>Tidak</option>
                   </select>
                </div>
                <div class="col-md-6 col-sm-12">
                   <label for="">Gejala 6</label><br>
-                  <select name="gejala6" id="" class="form-control">
-                     <option value="ya">Ya</option>
-                     <option value="no" selected>Tidak</option>
+                  <select name="G06" id="" class="form-control">
+                     <option value="G06">Ya</option>
+                     <option value="" selected>Tidak</option>
                   </select>
                </div>
             </div>
             <div class="row mt-4">
                <div class="col-md-6 col-sm-12">
                   <label for="">Gejala 2</label><br>
-                  <select name="gejala2" id="" class="form-control">
-                     <option value="ya">Ya</option>
-                     <option value="no" selected>Tidak</option>
+                  <select name="G02" id="" class="form-control">
+                     <option value="G02">Ya</option>
+                     <option value="" selected>Tidak</option>
                   </select>
                </div>
                <div class="col-md-6 col-sm-12">
                   <label for="">Gejala 7</label><br>
-                  <select name="gejala7" id="" class="form-control">
-                     <option value="ya">Ya</option>
-                     <option value="no" selected>Tidak</option>
+                  <select name="G07" id="" class="form-control">
+                     <option value="G07">Ya</option>
+                     <option value="" selected>Tidak</option>
                   </select>
                </div>
             </div>
             <div class="row mt-4">
                <div class="col-md-6 col-sm-12">
                   <label for="">Gejala 3</label><br>
-                  <select name="gejala3" id="" class="form-control">
-                     <option value="ya">Ya</option>
-                     <option value="no" selected>Tidak</option>
+                  <select name="G03" id="" class="form-control">
+                     <option value="G03">Ya</option>
+                     <option value="" selected>Tidak</option>
                   </select>
                </div>
                <div class="col-md-6 col-sm-12">
                   <label for="">Gejala 8</label><br>
-                  <select name="gejala8" id="" class="form-control">
-                     <option value="ya">Ya</option>
-                     <option value="no" selected>Tidak</option>
+                  <select name="G08" id="" class="form-control">
+                     <option value="G08">Ya</option>
+                     <option value="" selected>Tidak</option>
                   </select>
                </div>
             </div>
             <div class="row mt-4">
                <div class="col-md-6 col-sm-12">
                   <label for="">Gejala 4</label><br>
-                  <select name="gejala4" id="" class="form-control">
-                     <option value="ya">Ya</option>
-                     <option value="no" selected>Tidak</option>
+                  <select name="G04" id="" class="form-control">
+                     <option value="G04">Ya</option>
+                     <option value="" selected>Tidak</option>
                   </select>
                </div>
                <div class="col-md-6 col-sm-12">
                   <label for="">Gejala 9</label><br>
-                  <select name="gejala9" id="" class="form-control">
-                     <option value="ya">Ya</option>
-                     <option value="no" selected>Tidak</option>
+                  <select name="G09" id="" class="form-control">
+                     <option value="G09">Ya</option>
+                     <option value="" selected>Tidak</option>
                   </select>
                </div>
             </div>
             <div class="row mt-4">
                <div class="col-md-6 col-sm-12">
                   <label for="">Gejala 5</label><br>
-                  <select name="gejala5" id="" class="form-control">
-                     <option value="ya">Ya</option>
-                     <option value="no" selected>Tidak</option>
+                  <select name="G05" id="" class="form-control">
+                     <option value="G05">Ya</option>
+                     <option value="" selected>Tidak</option>
                   </select>
                </div>
                <div class="col-md-6 col-sm-12">
                   <label for="">Gejala 10</label><br>
-                  <select name="gejala10" id="" class="form-control">
-                     <option value="ya">Ya</option>
-                     <option value="no" selected>Tidak</option>
+                  <select name="G10" id="" class="form-control">
+                     <option value="G10">Ya</option>
+                     <option value="" selected>Tidak</option>
                   </select>
                </div>
             </div>
@@ -131,17 +131,13 @@
    $nama = '';
    $gejala = array();
    if(isset($_POST['diagnosis'])){
-      
+      // Get Values from Option
+      $case = array();
+      array_push($case, $_POST['G01'],$_POST['G02'],$_POST['G03'],$_POST['G04'],$_POST['G05'],$_POST['G06'],$_POST['G07'],$_POST['G08'],$_POST['G09'],$_POST['G10']);
       $i = 1;
       $nama = $_POST['nama'];
-      // while($i <= 10){
-      //    if($_POST['{"gejala".$i}'] == 'ya'){
-      //       array_push($gejala, '{"gejala".$i}');
-      //    }else{
-      //       continue;
-      //    }
-      //    $i++;
-      // }
+
+      // Insert Data to DB
       $sql = "INSERT INTO tb_pasien (id,nama,hsl_diagnosis) VALUES ('','$nama','Atopik')";
       echo"
       <script>alert('Hasil Diagnosis : Atopik')</script>

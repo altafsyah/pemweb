@@ -63,3 +63,7 @@ a:hover {
 .btn-primary:hover {
 	background: #9359df;
 }
+
+.logout {
+	margin-top: 200px;
+}
